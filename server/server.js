@@ -30,9 +30,7 @@ app.get("/read", function(request, response) {
 // send bandwidth test results here
 app.post("/save", function(request, response) {
   // not secure against timing-based attacks!
-  if (request.body.pw !== process.env.SECRET) {
-    return response.status(400).send("Bad pw");
-  }
+
   db.get("results")
     .push({
       speed: request.body.speed,
@@ -44,6 +42,6 @@ app.post("/save", function(request, response) {
 });
 
 // listen for requests :)
-const listener = app.listen(process.env.PORT, function() {
+const listener = app.listen(6661, function() {
   console.log("Your app is listening on port " + listener.address().port);
 });

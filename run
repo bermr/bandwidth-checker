@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cd ~/bernardo/projects/bandwidth-checker/client
+
+while true; do python clitest.py 'http://localhost:6661/save'; sleep 3600; done
